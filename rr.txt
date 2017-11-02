@@ -1,0 +1,66 @@
+Process arrival runtime priority
+0       10      25      0
+1       69      36      2
+2       87      20      0
+3       1       16      2
+4       46      28      0
+5       92      14      1
+6       74      12      1
+7       61      28      0
+8       89      27      0
+9       28      31      1
+10      34      33      2
+11      82      13      1
+12      93      32      0
+13      85      33      0
+14      87      11      1
+15      57      35      1
+16      2       10      0
+17      27      31      0
+18      34      10      0
+19      78      18      1
+
+
+
+Round Robin
+Process 3 started at time 1
+Process 16 started at time 11
+Process 16 finished at time 21
+Process 0 started at time 21
+Process 3 finished at time 37
+Process 9 started at time 37
+Process 10 started at time 47
+Process 15 started at time 57
+Process 17 started at time 67
+Process 18 started at time 77
+Process 18 finished at time 87
+Process 19 started at time 87
+Process 1 started at time 107
+Process 2 started at time 117
+Process 4 started at time 127
+Process 5 started at time 137
+Process 6 started at time 147
+Process 7 started at time 157
+Process 8 started at time 167
+Process 11 started at time 197
+Process 12 started at time 207
+Process 13 started at time 217
+Process 14 started at time 227
+Process 19 finished at time 265
+Process 0 finished at time 270
+Process 2 finished at time 290
+Process 5 finished at time 304
+Process 6 finished at time 306
+Process 11 finished at time 349
+Process 14 finished at time 370
+Process 4 finished at time 408
+Process 7 finished at time 416
+Process 8 finished at time 423
+Process 9 finished at time 424
+Process 10 finished at time 427
+Process 15 finished at time 452
+Process 17 finished at time 453
+Process 1 finished at time 459
+Process 12 finished at time 461
+Process 13 finished at time 464
+Average time from arrival to finish is 277 seconds
