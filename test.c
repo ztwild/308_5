@@ -69,16 +69,18 @@ void first_come_first_served(struct process *proc){
   int i, time = 0, finished = 0;
   int flag_count = 0;
   queue *q = create_queue();
+  int sum = 0;
   
   while(flag_count < NUM_PROCESSES){
     while(q->size != 0){
       node *n = dequeue(q);
       i = n->id;
       proc[i].starttime = time;
-      printf("Process %d started at time %d\n", i, time);
+      // printf("Process %d started at time %d\n", i, time);
       time += proc[i].runtime;
       proc[i].endtime = time;
-      printf("Process %d finished at time %d\n", i, time);
+      // printf("Process %d finished at time %d\n", i, time);
+      sum += time;
       free(n);
       flag_count++;
     }
@@ -94,12 +96,14 @@ void first_come_first_served(struct process *proc){
     }
   }
   average_time(proc);
+  printf("Sum of turnaround times = %d\n", sum);
 }
 
 void shortest_remaining_time(struct process *proc){
   int i, time = 0;
   int flag_count = 0;
   queue *q = create_queue();
+  int sum = 0;
 
   while(flag_count < NUM_PROCESSES){
     for(i = 0; i < NUM_PROCESSES; i++){
@@ -117,10 +121,11 @@ void shortest_remaining_time(struct process *proc){
     else{
       node *n = dequeue(q);
       int id = n->id;
-      printf("Process %d started at time %d\n", id, time);
+      // printf("Process %d started at time %d\n", id, time);
       proc[id].starttime = time;
       time += proc[id].runtime;
-      printf("Process %d finished at time %d\n", id, time);
+      // printf("Process %d finished at time %d\n", id, time);
+      sum += time;
       proc[id].endtime = time;
       free(n);
     }
@@ -128,14 +133,16 @@ void shortest_remaining_time(struct process *proc){
   while(q->size > 0){
     node *n = dequeue(q);
     int id = n->id;
-    printf("Process %d started at time %d\n", id, time);
+    // printf("Process %d started at time %d\n", id, time);
     proc[id].starttime = time;
     time += proc[id].runtime;
-    printf("Process %d finished at time %d\n", id, time);
+    // printf("Process %d finished at time %d\n", id, time);
+    sum += time;
     proc[id].endtime = time;
     free(n);
   }
   average_time(proc);
+  printf("Sum of turnaround times = %d\n", sum);
 }
 
 void round_robin(struct process *proc){
@@ -144,6 +151,7 @@ void round_robin(struct process *proc){
   int last_index = 0;
   queue *q = create_queue();
   node *n = NULL;
+  int sum = 0;
   
   for(i = 0; i < NUM_PROCESSES; i++){
     proc[i].remainingtime = proc[i].runtime;
@@ -164,7 +172,7 @@ void round_robin(struct process *proc){
       i = n->id;
       last_index = i + 1;
       if(proc[i].runtime == proc[i].remainingtime){
-        printf("Process %d started at time %d\n", i, time);
+        // printf("Process %d started at time %d\n", i, time);
         proc[i].starttime = time;
       }
       if(proc[i].remainingtime > 10){
@@ -174,7 +182,8 @@ void round_robin(struct process *proc){
       else{
         time += proc[i].remainingtime;
         proc[i].remainingtime = 0;
-        printf("Process %d finished at time %d\n", i, time);
+        // printf("Process %d finished at time %d\n", i, time);
+        sum += time;
         proc[i].endtime = time;
         flag_count++;
         free(n);
@@ -191,6 +200,7 @@ void round_robin(struct process *proc){
 
   }
   average_time(proc);
+  printf("Sum of turnaround times = %d\n", sum);
 }
 
 void round_robin_priority(struct process *proc){
@@ -199,6 +209,7 @@ void round_robin_priority(struct process *proc){
   int last_index = 0;
   queue *q = create_queue();
   node *n = NULL;
+  int sum = 0;
   
   for(i = 0; i < NUM_PROCESSES; i++){
     proc[i].remainingtime = proc[i].runtime;
@@ -219,7 +230,7 @@ void round_robin_priority(struct process *proc){
       i = n->id;
       last_index = i + 1;
       if(proc[i].runtime == proc[i].remainingtime){
-        printf("Process %d started at time %d\n", i, time);
+        // printf("Process %d started at time %d\n", i, time);
         proc[i].starttime = time;
       }
       if(proc[i].remainingtime > 10){
@@ -229,7 +240,8 @@ void round_robin_priority(struct process *proc){
       else{
         time += proc[i].remainingtime;
         proc[i].remainingtime = 0;
-        printf("Process %d finished at time %d\n", i, time);
+        // printf("Process %d finished at time %d\n", i, time);
+        sum += time;
         proc[i].endtime = time;
         flag_count++;
         free(n);
@@ -246,6 +258,7 @@ void round_robin_priority(struct process *proc){
 
   }
   average_time(proc);
+  printf("Sum of turnaround times = %d\n", sum);
 }
 
 void init_procs(struct process *proc){

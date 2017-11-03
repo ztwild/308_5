@@ -1,1 +1,6 @@
 summary: 
+In this lab we worked with creating four different scheduling priorities: first come first serve, 
+least remaining time, round robin, and round robin with priority.  With the values that we tested with,
+the least amount of average time spent from arrival time to end time for the processes was for 
+least remaining time process.  The most average time spent from arrival time to end time was for the 
+round robin process.
