@@ -1,49 +1,65 @@
 Process arrival runtime priority
-0 	10	25	0
-1 	69 	36 	2
-2 	87 	20 	0
-3 	1 	16 	2
-4 	46 	28 	0
-5 	92 	14 	1
-6 	74 	12 	1
-7 	61 	28 	0
-8 	89 	27 	0
-9 	28 	31 	1
-10 	34 	33 	2
-11 	82 	13 	1
-12 	93 	32 	0
-13 	85 	33 	0
-14 	87 	11 	1
-15 	57 	35 	1
-16 	2 	10 	0
-17 	27 	31 	0
-18 	34 	10 	0
-19 	78 	18 	1
-
-
-shold be in this order but need to duble check
-3 	1 	16 	2
-16 	2 	10 	0
-0 	10	25	0
-18 	34 	10 	0
-7 	61 	28 	0
-14 	87 	11 	1
-6 	74 	12 	1
-11 	82 	13 	1
-5 	92 	14 	1
-19 	78 	18 	1
-2 	87 	20 	0
-8 	89 	27 	0
-4 	46 	28 	0
-17 	27 	31 	0
-9 	28 	31 	1
-12 	93 	32 	0
-10 	34 	33 	2
-13 	85 	33 	0
-15 	57 	35 	1
-1 	69 	36 	2
+0       10      25      0
+1       69      36      2
+2       87      20      0
+3       1       16      2
+4       46      28      0
+5       92      14      1
+6       74      12      1
+7       61      28      0
+8       89      27      0
+9       28      31      1
+10      34      33      2
+11      82      13      1
+12      93      32      0
+13      85      33      0
+14      87      11      1
+15      57      35      1
+16      2       10      0
+17      27      31      0
+18      34      10      0
+19      78      18      1
 
 
 Shortest remaining time
-Process %d started at time %d
-Process %d finished at time %d
+Process 3 started at time 1
+Process 3 finished at time 17
+Process 16 started at time 17
+Process 16 finished at time 27
+Process 0 started at time 27
+Process 0 finished at time 52
+Process 18 started at time 52
+Process 18 finished at time 62
+Process 4 started at time 62
+Process 4 finished at time 90
+Process 14 started at time 90
+Process 14 finished at time 101
+Process 6 started at time 101
+Process 6 finished at time 113
+Process 11 started at time 113
+Process 11 finished at time 126
+Process 5 started at time 126
+Process 5 finished at time 140
+Process 19 started at time 140
+Process 19 finished at time 158
+Process 2 started at time 158
+Process 2 finished at time 178
+Process 8 started at time 178
+Process 8 finished at time 205
+Process 7 started at time 205
+Process 7 finished at time 233
+Process 17 started at time 233
+Process 17 finished at time 264
+Process 9 started at time 264
+Process 9 finished at time 295
+Process 12 started at time 295
+Process 12 finished at time 327
+Process 10 started at time 327
+Process 10 finished at time 360
+Process 13 started at time 360
+Process 13 finished at time 393
+Process 15 started at time 393
+Process 15 finished at time 428
+Process 1 started at time 428
+Process 1 finished at time 464
+Average time from arrival to finish is 144 seconds

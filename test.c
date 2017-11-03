@@ -1,17 +1,10 @@
-/*******************************************************************************
-*
-* CprE 308 Scheduling Lab
-*
-* scheduling.c
-*******************************************************************************/
 #include <stdio.h>
 #include <string.h>
 #include "utils.c"
 
 #define NUM_PROCESSES 20
 
-struct process
-{
+struct process{
   /* Values initialized for each process */
   int arrivaltime;  /* Time process arrives and wishes to start */
   int runtime;      /* Time process requires to complete job */
@@ -24,41 +17,26 @@ struct process
   int remainingtime;
 };
 
-/* Forward declarations of Scheduling algorithms */
 void first_come_first_served(struct process *proc);
 void shortest_remaining_time(struct process *proc);
 void round_robin(struct process *proc);
 void round_robin_priority(struct process *proc);
+//for testing
+void init_procs(struct process *proc);
 
 int main()
 {
   int i;
-  struct process proc[NUM_PROCESSES],      /* List of processes */
-                 proc_copy[NUM_PROCESSES]; /* Backup copy of processes */
+  struct process proc[NUM_PROCESSES],     
+                 proc_copy[NUM_PROCESSES]; 
 
-  /* Seed random number generator */
-  /*srand(time(0));*/  /* Use this seed to test different scenarios */
-  srand(0xC0FFEE);     /* Used for test to be printed out */
+  init_procs(proc);
 
-  /* Initialize process structures */
-  for(i=0; i<NUM_PROCESSES; i++)
-  {
-    proc[i].arrivaltime = rand()%100;
-    proc[i].runtime = (rand()%30)+10;
-    proc[i].priority = rand()%3;
-    proc[i].starttime = 0;
-    proc[i].endtime = 0;
-    proc[i].flag = 0;
-    proc[i].remainingtime = 0;
-  }
-
-  /* Show process values */
   printf("Process\tarrival\truntime\tpriority\n");
   for(i=0; i<NUM_PROCESSES; i++)
     printf("%d\t%d\t%d\t%d\n", i, proc[i].arrivaltime, proc[i].runtime,
            proc[i].priority);
 
-  /* Run scheduling algorithms */
   printf("\n\nFirst come first served\n");
   memcpy(proc_copy, proc, NUM_PROCESSES * sizeof(struct process));
   first_come_first_served(proc_copy);
@@ -77,7 +55,6 @@ int main()
 
   return 0;
 }
-
 
 void average_time(struct process *proc){
   int i, avrg = 0;
@@ -269,4 +246,106 @@ void round_robin_priority(struct process *proc){
 
   }
   average_time(proc);
+}
+
+void init_procs(struct process *proc){
+  int i;
+  for(i = 0; i < 20; i++){
+    proc[i].priority = 0;
+    proc[i].starttime = 0;
+    proc[i].endtime = 0;
+    proc[i].flag = 0;
+    proc[i].remainingtime = 0;
+  }
+  
+  // 0 	10	25	0
+  proc[0].arrivaltime = 10;
+  proc[0].runtime = 25;
+  
+  // 1 	69 	36 	2
+  proc[1].arrivaltime = 69;
+  proc[1].runtime = 36;
+  proc[1].priority = 2;
+
+  // 2 	87 	20 	0
+  proc[2].arrivaltime = 87;
+  proc[2].runtime = 20;
+
+  // 3 	1 	16 	2
+  proc[3].arrivaltime = 1;
+  proc[3].runtime = 16;
+  proc[3].priority = 2;
+
+  // 4 	46 	28 	0
+  proc[4].arrivaltime = 46;
+  proc[4].runtime = 28;
+
+  // 5 	92 	14 	1
+  proc[5].arrivaltime = 92;
+  proc[5].runtime = 14;
+  proc[5].priority = 1;
+
+  // 6 	74 	12 	1
+  proc[6].arrivaltime = 74;
+  proc[6].runtime = 12;
+  proc[6].priority = 1;
+
+  // 7 	61 	28 	0
+  proc[7].arrivaltime = 61;
+  proc[7].runtime = 28;
+
+  // 8 	89 	27 	0
+  proc[8].arrivaltime = 89;
+  proc[8].runtime = 27;
+
+  // 9 	28 	31 	1
+  proc[9].arrivaltime = 28;
+  proc[9].runtime = 31;
+  proc[9].priority = 1;
+
+  // 10 	34 	33 	2
+  proc[10].arrivaltime = 34;
+  proc[10].runtime = 33;
+  proc[10].priority = 2;
+
+  // 11 	82 	13 	1
+  proc[11].arrivaltime = 82;
+  proc[11].runtime = 13;
+  proc[11].priority = 1;
+
+  // 12 	93 	32 	0
+  proc[12].arrivaltime = 93;
+  proc[12].runtime = 32;
+
+  // 13 	85 	33 	0
+  proc[13].arrivaltime = 85;
+  proc[13].runtime = 33;
+
+  // 14 	87 	11 	1
+  proc[14].arrivaltime = 87;
+  proc[14].runtime = 11;
+  proc[14].priority = 1;
+
+  // 15 	57 	35 	1
+  proc[15].arrivaltime = 57;
+  proc[15].runtime = 35;
+  proc[15].priority = 1;
+
+  // 16 	2 	10 	0
+  proc[16].arrivaltime = 2;
+  proc[16].runtime = 10;
+
+  // 17 	27 	31 	0
+  proc[17].arrivaltime =27;
+  proc[17].runtime = 31;
+
+  // 18 	34 	10 	0
+  proc[18].arrivaltime = 34;
+  proc[18].runtime = 10;
+
+  // 19 	78 	18 	1
+  proc[19].arrivaltime = 78;
+  proc[19].runtime = 18;
+  proc[19].priority = 1;
+
 }
