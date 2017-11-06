@@ -1,7 +1,9 @@
 summary: 
-In this lab we worked with creating four different scheduling priorities: first come first serve, 
-least remaining time, round robin, and round robin with priority.  When running the scheduling 
-algorithms with random values, least remaining time, on average, was able to complete processes 
-from arrival time to end time the soonest.  The next quickest algorithms were first come first serve
-and round robin priority respectively.  Round robin without the priority, on average, took the 
-longest amount of time to complete a process.
+In this lab we worked with creating four different scheduling priorities: 
+‘first come first serve’,‘least remaining time’, ‘round robin’, and ‘round 
+robin with priority’.  When running the scheduling algorithms with random 
+values, on average, ‘least remaining time’ was able to complete the processes
+from arrival time to end time the soonest.  The next quickest algorithms 
+were ‘first come first serve’ and ‘round robin priority’ respectively.  
+‘Round robin’ without the priority, on average, took the longest amount 
+of time to complete a process.
